@@ -1,0 +1,24 @@
+body {
+    overflow-y: scroll;
+    background-color: white;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.card-style{
+  width: 17rem;
+  margin-right: 10px;
+}
+
+.img{
+  width: 300px;
+}
+
+.items{
+  font-size: large;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.items > div{
+  padding-bottom: 10px;;
+}
