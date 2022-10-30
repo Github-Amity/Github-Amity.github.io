@@ -8,6 +8,7 @@ body {
 .card-style{
   width: 17rem;
   margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .img{
@@ -17,8 +18,13 @@ body {
 .items{
   font-size: large;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: black;
 }
 
 .items > div{
   padding-bottom: 10px;;
+}
+
+a{
+  color: inherit;
 }
