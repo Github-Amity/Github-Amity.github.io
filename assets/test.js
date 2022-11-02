@@ -12,7 +12,7 @@ function loadData() {
     ];
 
     const tarctic = {
-        score: 150000,
+        score: 1500,
         rank: 1,
         projects: projects[0,3]
     }
