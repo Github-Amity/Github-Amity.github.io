@@ -9,14 +9,15 @@ function loadData() {
         "Members contributions",    // 0
         "Java Objects",             // 1
         "Java Classes",             // 2
+        "Java Basics 1"
     ];
 
     const members = [
         {
             username: "Maryam",
-            score: 1500,
+            score: 2500,
             rank: 1,
-            projects: projects.slice(0,2),
+            projects: projects.slice(0,3),
             img: "maryam.jpg",
         },
         {
@@ -70,10 +71,10 @@ function loadData() {
         },
         {
             username: "Sher",
-            score: 0,
+            score: 500,
             rank: 4,
-            projects: projects.slice(),
-            img: "nope.jpg",
+            projects: projects.slice(0),
+            img: "sher.jpg",
         },
     ]
 
@@ -82,15 +83,22 @@ function loadData() {
         console.log(member)
         if (member.username == username) {
 
-            const img = document.querySelector('img');
-            img.src = member.img;
-
             const username = document.getElementById('username');
             username.innerHTML = member.username;
             const score = document.getElementById('score');
             score.innerHTML = member.score;
             const rank = document.getElementById('rank');
             rank.innerHTML = member.rank;
+
+            const img = document.getElementById('img');
+            img.src = member.img;
+
+            // const body = document.getElementById('body');
+            // if (body.value == 'index') {
+            //     var imgsrc = "assets/" + member.img;
+            //     img.src = imgsrc;
+            //     console.log(img.src);
+            // }
     
             const projects = document.getElementById('projects');
             member.projects.forEach(function(project) {
@@ -98,6 +106,7 @@ function loadData() {
                 li.appendChild(document.createTextNode(project));
                 projects.appendChild(li);
             })
+            
             
         }
     })
