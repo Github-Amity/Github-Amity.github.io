@@ -22,9 +22,18 @@ body {
 }
 
 .items > div{
-  padding-bottom: 10px;;
+  padding-bottom: 10px;
 }
 
 a{
   color: inherit;
+}
+
+a:hover {
+  color:inherit;
+}
+
+.member{
+  padding-left: 50px;
+  padding-top: 30px;
 }
