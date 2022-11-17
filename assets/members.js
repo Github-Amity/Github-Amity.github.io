@@ -180,17 +180,3 @@ function calcRank(thisMember) {
     }
     return rank+1;
 }
-
-
-/*
-
-DONE - change variable names and file name
-DONE - create div element (ordered list) for projects
-DONE - create function to calculate rank
-DONE - create others info objects
-DONE - make a proper score system
-DONE - use hide and block and one single html file for the whole website
-- break into functions for cleaner code
-DONE - create onclick trigger for the button and hide mainBlock and show memberBlock for particular member (inside the loop)
-
-*/
