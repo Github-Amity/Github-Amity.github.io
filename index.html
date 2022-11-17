@@ -5,13 +5,16 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link href="https://github-amity.github.io/assets/styles.css" rel="stylesheet" >
         <!-- <script src="https://github-amity.github.io/assets/members.js"></script> -->
-        <!-- <script src="assets/members.js"></script> -->
+        <script src="assets/members.js"></script>
     </head>
     <body class="bg-secondary" id="body" value="index">
         <nav class="navbar navbar-expand-sm bg-dark">
             <ul class="navbar-nav">
                 <li class="nav-item bg-dark text-white"> 
                     <h2 class="nav-link">GitHub-Amity</h2>
+                </li>
+                <li class="nav-item bg-dark text-white">
+                    <button class="nav-link" id="tarcticButton" onclick="toggleMain()">Profile</button>
                 </li>
             </ul>
         </nav>
@@ -24,121 +27,15 @@
                 </div>
                 <hr>
                 <ul>
-                    <div class="d-flex flex-wrap">
+                    <div class="d-flex flex-wrap" id="cardsHolder">
 
                             <div class="card p-2 card-style">
                                 <img src="assets/tarctic.jpg" class="card-img-top" id="img" alt="Image not available">
                                 <div class="card-body">
                                     <h5 class="card-title" id="name">Tarctic</h5>
                                     <p class="card-text">Score: <span id="score">1500</span></p>
-                                    <div class="d-flex flex-row">
-                                        <div class="p-2">
+                                    <div class="d-flex flex-row p-2">
                                             <a href="assets/tarctic.html" class="btn btn-primary">Open</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card p-2 card-style">
-                                <img src="assets/bhavya.jpg" class="card-img-top" alt="Image not available">
-                                <div class="card-body">
-                                    <h5 class="card-title" >Bhavya</h5>
-                                    <p class="card-text">Score: 1500</p>
-                                    <div class="d-flex flex-row">
-                                        <div class="p-2">
-                                            <a href="assets/bhavya.html" class="btn btn-primary">Open</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card p-2 card-style">
-                                <img src="assets/rahul.jpg" class="card-img-top" alt="Image not available">
-                                <div class="card-body">
-                                    <h5 class="card-title" >Rahul</h5>
-                                    <p class="card-text">Score: 1000</p>
-                                    <div class="d-flex flex-row">
-                                        <div class="p-2">
-                                            <a href="assets/rahul.html" class="btn btn-primary">Open</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card p-2 card-style">
-                                <img src="assets/maryam.jpg" class="card-img-top" alt="Image not available">
-                                <div class="card-body">
-                                    <h5 class="card-title" >Maryam</h5>
-                                    <p class="card-text">Score: 1000</p>
-                                    <div class="d-flex flex-row">
-                                        <div class="p-2">
-                                            <a href="assets/maryam.html" class="btn btn-primary">Open</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card p-2 card-style">
-                                <img src="assets/nope.jpg" class="card-img-top" alt="Image not available">
-                                <div class="card-body">
-                                    <h5 class="card-title" >Sohan</h5>
-                                    <p class="card-text">Score: 0</p>
-                                    <div class="d-flex flex-row">
-                                        <div class="p-2">
-                                            <a href="assets/sohan.html" class="btn btn-primary">Open</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card p-2 card-style">
-                                <img src="assets/nope.jpg" class="card-img-top" alt="Image not available">
-                                <div class="card-body">
-                                    <h5 class="card-title" >Puni</h5>
-                                    <p class="card-text">Score: 0</p>
-                                    <div class="d-flex flex-row">
-                                        <div class="p-2">
-                                            <a href="assets/puni.html" class="btn btn-primary">Open</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card p-2 card-style">
-                                <img src="assets/nope.jpg" class="card-img-top" alt="Image not available">
-                                <div class="card-body">
-                                    <h5 class="card-title" >Sher</h5>
-                                    <p class="card-text">Score: 500</p>
-                                    <div class="d-flex flex-row">
-                                        <div class="p-2">
-                                            <a href="assets/sher.html" class="btn btn-primary">Open</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card p-2 card-style">
-                                <img src="assets/hannan.jpg" class="card-img-top" alt="Image not available">
-                                <div class="card-body">
-                                    <h5 class="card-title">Hannan</h5>
-                                    <p class="card-text">Score: 0</p>
-                                    <div class="d-flex flex-row">
-                                        <div class="p-2">
-                                            <a href="assets/hannan.html" class="btn btn-primary">Open</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card p-2 card-style">
-                                <img src="assets/nope.jpg" class="card-img-top" alt="Image not available">
-                                <div class="card-body">
-                                    <h5 class="card-title" >Sourabh</h5>
-                                    <p class="card-text">Score: 0</p>
-                                    <div class="d-flex flex-row">
-                                        <div class="p-2">
-                                            <a href="assets/sourabh.html" class="btn btn-primary">Open</a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

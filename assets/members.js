@@ -3,13 +3,25 @@ function() {
     loadData();
 })
 
+
+function toggleMain() {
+    mainBlock = document.getElementById("mainBlock");
+    if (mainBlock.style.display === "none") {
+    mainBlock.style.display = "block";
+    } else {
+    mainBlock.style.display = "none";
+    }
+    
+}
+
 function loadData() {
 
     const projects = [
         "Members contributions",    // 0
         "Java Objects",             // 1
         "Java Classes",             // 2
-        "Java Basics 1"
+        "Java Basics 1",            // 3
+        "Java Basics 2"             // 4
     ];
 
     const members = [
@@ -78,37 +90,45 @@ function loadData() {
         },
     ]
 
-    const username = document.getElementById("name").innerHTML;
+    cardsHolder = document.getElementById("cardsHolder")
     members.forEach(function(member) {
-        console.log(member)
-        if (member.username == username) {
+        var card = document.createElement('div');
+        card.classList.add('card','p-2','card-style');
 
-            const username = document.getElementById('username');
-            username.innerHTML = member.username;
-            const score = document.getElementById('score');
-            score.innerHTML = member.score;
-            const rank = document.getElementById('rank');
-            rank.innerHTML = member.rank;
+        var img = document.createElement('img');
+        img.className = "card-img-top";
+        card.appendChild(img);
 
-            const img = document.getElementById('img');
-            img.src = member.img;
+        var cardBody = document.createElement('div');
+        cardBody.className = "card-body";
+        var cardTitle = document.createElement('h5');
+        cardTitle.className = "card-title";
+        var cardText = document.createElement('p');
+        cardText.className = "card-text";
+        var score = document.createElement('span');
+        cardText.appendChild(score);
+        var cardBtn = document.createElement('div');
+        cardBtn.classList.add('d-flex','flex-row','p-2');
+        var cardOpen = document.createElement('a');
+        cardOpen.classList.add('btn','btn-primary');
+        cardOpen.innerHTML = "Open";
+        cardBtn.appendChild(cardOpen);
 
-            // const body = document.getElementById('body');
-            // if (body.value == 'index') {
-            //     var imgsrc = "assets/" + member.img;
-            //     img.src = imgsrc;
-            //     console.log(img.src);
-            // }
-    
-            const projects = document.getElementById('projects');
-            member.projects.forEach(function(project) {
-                li = document.createElement('li');
-                li.appendChild(document.createTextNode(project));
-                projects.appendChild(li);
-            })
-            
-            
-        }
+        cardBody.appendChild(cardTitle);
+        cardBody.appendChild(cardText);
+        cardBody.appendChild(cardBtn);
+        
+        card.appendChild(cardBody);
+
+        cardsHolder.appendChild(card);
+
+        img.src = "assets/"+member.img;
+        cardTitle.innerHTML = member.username;
+        score.innerHTML = member.score
+        cardOpen.href = ""
+
+
+
     })
 
 }
@@ -121,5 +141,10 @@ DONE - create div element (ordered list) for projects
 DONE - create others info objects
 - make a proper score system
 - use hide and block and one single html file for the whole website
+- break into functions for cleaner code
+
+Next:
+- change "open button" from href to button
+- create onclick trigger for the button and hide mainBlock and show memberBlock for particular member (inside the loop)
 
 */
