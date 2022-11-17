@@ -3,81 +3,72 @@ function() {
     loadData();
 })
 
+const projects = [
+    "Members contributions",    // 0 = 500
+    "Java Objects",             // 1 = 1000
+    "Java Classes",             // 2 = 1000
+    "Java Basics 1",            // 3 = 2000
+    "Java Basics 2"             // 4 = 2000
+    // If member completed projects 0-2 then use: projects.slice(0,3)
+];
+
+const members = [
+    {
+        username: "Maryam",
+        score: 2500,
+        projects: projects.slice(0,3),
+        img: "maryam.jpg",
+    },
+    {
+        username: "Bhavya",
+        score: 1500,
+        projects: projects.slice(0,2),
+        img: "bhavya.jpg",
+    },
+    {
+        username: "Rahul",
+        score: 1000,
+        projects: projects.slice(1,2),
+        img: "rahul.jpg",
+    },
+    {
+        username: "Sohan",
+        score: 500,
+        projects: projects.slice(0,1),
+        img: "nope.jpg",
+    },
+    {
+        username: "Sourabh",
+        score: 0,
+        projects: projects.slice(),
+        img: "nope.jpg",
+    },
+    {
+        username: "Puni",
+        score: 0,
+        projects: projects.slice(),
+        img: "nope.jpg",
+    },
+    {
+        username: "Hannan",
+        score: 2500,
+        projects: projects.slice(0,3),
+        img: "hannan.jpg",
+    },
+    {
+        username: "Sher",
+        score: 500,
+        projects: projects.slice(0),
+        img: "sher.jpg",
+    },
+]
+
 function loadData() {
     var mainBlock = document.getElementById("mainBlock");
     mainBlock.style.display = "block";
 
     var memberBlock = document.getElementById("memberBlock");
     memberBlock.style.display = "none";
-
-    const projects = [
-        "Members contributions",    // 0
-        "Java Objects",             // 1
-        "Java Classes",             // 2
-        "Java Basics 1",            // 3
-        "Java Basics 2"             // 4
-        // If member completed projects 0,1,2 then use: projects.slice(0,3)
-    ];
-
-    const members = [
-        {
-            username: "Maryam",
-            score: 2500,
-            rank: 1,
-            projects: projects.slice(0,3),
-            img: "maryam.jpg",
-        },
-        {
-            username: "Bhavya",
-            score: 1500,
-            rank: 1,
-            projects: projects.slice(0,2),
-            img: "bhavya.jpg",
-        },
-        {
-            username: "Rahul",
-            score: 1000,
-            rank: 2,
-            projects: projects.slice(1,2),
-            img: "rahul.jpg",
-        },
-        {
-            username: "Sohan",
-            score: 500,
-            rank: 3,
-            projects: projects.slice(0,1),
-            img: "nope.jpg",
-        },
-        {
-            username: "Sourabh",
-            score: 0,
-            rank: 4,
-            projects: projects.slice(0,3),
-            img: "nope.jpg",
-        },
-        {
-            username: "Puni",
-            score: 0,
-            rank: 4,
-            projects: projects.slice(0,3),
-            img: "nope.jpg",
-        },
-        {
-            username: "Hannan",
-            score: 0,
-            rank: 4,
-            projects: projects.slice(),
-            img: "hannan.jpg",
-        },
-        {
-            username: "Sher",
-            score: 500,
-            rank: 4,
-            projects: projects.slice(0),
-            img: "sher.jpg",
-        },
-    ]
-
 
     cardsHolder = document.getElementById("cardsHolder")
     members.forEach(function(member) {
@@ -142,7 +133,7 @@ function loadData() {
             var score = document.createElement('div');
             score.innerHTML = "Score: "+member.score;
             var rank = document.createElement('div');
-            rank.innerHTML = "Rank: "+member.rank;
+            rank.innerHTML = "Rank: "+calcRank(member);
             var projects = document.createElement('div');
             projects.innerHTML = "Projects: ";
             var projectList = document.createElement('ol');
@@ -175,19 +166,31 @@ function loadData() {
 
 }
 
+function calcRank(thisMember) {
+    var memberSet = new Set();
+    members.forEach(function(member) {
+        memberSet.add(member.score);
+    })
+    var memberArray = Array.from(memberSet).sort((a, b) => b - a);
+    var rank;
+    for (i=0; i<memberArray.length; i++) {
+        if (memberArray[i] == thisMember.score) {
+            rank = i;
+        }
+    }
+    return rank+1;
+}
+
 
 /*
 
 DONE - change variable names and file name
 DONE - create div element (ordered list) for projects
-- create function to calculate rank
+DONE - create function to calculate rank
 DONE - create others info objects
-- make a proper score system
-- use hide and block and one single html file for the whole website
+DONE - make a proper score system
+DONE - use hide and block and one single html file for the whole website
 - break into functions for cleaner code
-
-Next:
-- change "open button" from href to button
-- create onclick trigger for the button and hide mainBlock and show memberBlock for particular member (inside the loop)
+DONE - create onclick trigger for the button and hide mainBlock and show memberBlock for particular member (inside the loop)
 
 */
