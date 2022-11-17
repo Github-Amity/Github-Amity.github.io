@@ -3,18 +3,12 @@ function() {
     loadData();
 })
 
-
-function toggleMain() {
-    mainBlock = document.getElementById("mainBlock");
-    if (mainBlock.style.display === "none") {
-    mainBlock.style.display = "block";
-    } else {
-    mainBlock.style.display = "none";
-    }
-    
-}
-
 function loadData() {
+    var mainBlock = document.getElementById("mainBlock");
+    mainBlock.style.display = "block";
+
+    var memberBlock = document.getElementById("memberBlock");
+    memberBlock.style.display = "none";
 
     const projects = [
         "Members contributions",    // 0
@@ -22,6 +16,7 @@ function loadData() {
         "Java Classes",             // 2
         "Java Basics 1",            // 3
         "Java Basics 2"             // 4
+        // If member completed projects 0,1,2 then use: projects.slice(0,3)
     ];
 
     const members = [
@@ -38,13 +33,6 @@ function loadData() {
             rank: 1,
             projects: projects.slice(0,2),
             img: "bhavya.jpg",
-        },
-        {
-            username: "Tarctic",
-            score: 1500,
-            rank: 1,
-            projects: projects.slice(0,3),
-            img: "tarctic.jpg",
         },
         {
             username: "Rahul",
@@ -90,6 +78,7 @@ function loadData() {
         },
     ]
 
+
     cardsHolder = document.getElementById("cardsHolder")
     members.forEach(function(member) {
         var card = document.createElement('div');
@@ -97,19 +86,22 @@ function loadData() {
 
         var img = document.createElement('img');
         img.className = "card-img-top";
+        img.src = "assets/"+member.img;
         card.appendChild(img);
 
         var cardBody = document.createElement('div');
         cardBody.className = "card-body";
         var cardTitle = document.createElement('h5');
         cardTitle.className = "card-title";
+        cardTitle.innerHTML = member.username;
         var cardText = document.createElement('p');
         cardText.className = "card-text";
         var score = document.createElement('span');
+        score.innerHTML = "Score: "+member.score;
         cardText.appendChild(score);
         var cardBtn = document.createElement('div');
         cardBtn.classList.add('d-flex','flex-row','p-2');
-        var cardOpen = document.createElement('a');
+        var cardOpen = document.createElement('button');
         cardOpen.classList.add('btn','btn-primary');
         cardOpen.innerHTML = "Open";
         cardBtn.appendChild(cardOpen);
@@ -122,16 +114,67 @@ function loadData() {
 
         cardsHolder.appendChild(card);
 
-        img.src = "assets/"+member.img;
-        cardTitle.innerHTML = member.username;
-        score.innerHTML = member.score
-        cardOpen.href = ""
+
+        cardOpen.addEventListener('click',function() {
+            mainBlock.style.display = "none";
+            memberBlock.style.display = "block";
+
+            var memberDiv = document.createElement('div');
+            memberDiv.className = "member";
+
+            var nameTitle = document.createElement('h2');
+            nameTitle.className = "text-white";
+            nameTitle.textContent = member.username;
+            var hr = document.createElement('hr');
+
+            memberDiv.appendChild(nameTitle);
+            memberDiv.appendChild(hr);
+
+            var infoDiv = document.createElement('div');
+            infoDiv.className = "items";
+            var img = document.createElement('img');
+            img.className = "img";
+            img.src = "assets/"+member.img;
+            img.alt = "Image not found!"
+            img.style = "padding-bottom: 20px;"
+            var username = document.createElement('div');
+            username.innerHTML = "Username: "+member.username;
+            var score = document.createElement('div');
+            score.innerHTML = "Score: "+member.score;
+            var rank = document.createElement('div');
+            rank.innerHTML = "Rank: "+member.rank;
+            var projects = document.createElement('div');
+            projects.innerHTML = "Projects: ";
+            var projectList = document.createElement('ol');
+            projectList.style = "font-size:medium;"
+            member.projects.forEach(function(project) {
+                var li = document.createElement('li');
+                li.appendChild(document.createTextNode(project));
+                projectList.appendChild(li);
+            })
+
+            infoDiv.appendChild(img);
+            infoDiv.appendChild(username);
+            infoDiv.appendChild(score);
+            infoDiv.appendChild(rank);
+            infoDiv.appendChild(projects);
+            infoDiv.appendChild(projectList);
+
+            var space = document.createElement('p');
+            space.style = "height: 200px;";
+
+            memberDiv.appendChild(infoDiv);
+            memberDiv.appendChild(space);
+
+            memberBlock.appendChild(memberDiv);
+        });
 
 
 
     })
 
 }
+
 
 /*
 
